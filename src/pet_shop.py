@@ -48,26 +48,26 @@ def get_pets_by_breed(shop, breed_desired):
 
 # 10
 
-def find_pet_by_name(list,name):
-    for pet in list["pets"]:
+def find_pet_by_name(shop,name):
+    for pet in shop["pets"]:
         if pet["name"] == name:
             return pet
-    return 
+        
 
 # 11 same function
 
 #12
 
-def remove_pet_by_name(list, name):
-    for pet in list["pets"]:
+def remove_pet_by_name(shop, name):
+    for pet in shop["pets"]:
         if pet["name"] == name:
-            list["pets"].remove(pet)
-    return
+            shop["pets"].remove(pet)
+    #return
 
 #13
 
-def add_pet_to_stock(list, pet_to_add):
-    list["pets"].append(pet_to_add)
+def add_pet_to_stock(shop, pet_to_add):
+    shop["pets"].append(pet_to_add)
 
 
 #14 
@@ -90,3 +90,42 @@ def get_customer_pet_count(customer):
 def add_pet_to_customer(customer, pet_to_add):
     customer["pets"].append(pet_to_add)
     return len(customer["pets"])
+
+
+# Optional no. 1
+
+def customer_can_afford_pet(customer, pet_desired):
+    if customer["cash"] >= pet_desired["price"]:
+        return True
+    else:
+        return False
+
+
+# Optional no. 2 - same function as above
+
+
+# Optional no. 3 same as above
+
+
+# Optional no. 4- integrations
+
+def sell_pet_to_customer(shop, name, customer):
+  #  find_pet_by_name(shop, pet)
+    amount = 0
+
+    if remove_pet_by_name(shop, name) != None:
+        amount = name["price"]
+        shop["admin"]["total_cash"] += amount   
+        add_pet_to_customer(customer, name)
+        shop["admin"]["pets_sold"] += 1
+    
+    get_customer_pet_count(customer)
+    get_pets_sold(shop)
+    remove_customer_cash(customer, amount)
+    get_customer_cash(customer)
+
+
+
+
+    get_total_cash(shop)
+

@@ -50,9 +50,43 @@ def get_pets_by_breed(shop, breed_desired):
 
 def find_pet_by_name(list,name):
     for pet in list["pets"]:
-        if pet["name"] == "name":
+        if pet["name"] == name:
             return pet
-        return "Not found."
+    return 
 
-# 11
+# 11 same function
 
+#12
+
+def remove_pet_by_name(list, name):
+    for pet in list["pets"]:
+        if pet["name"] == name:
+            list["pets"].remove(pet)
+    return
+
+#13
+
+def add_pet_to_stock(list, pet_to_add):
+    list["pets"].append(pet_to_add)
+
+
+#14 
+
+def get_customer_cash(customer):
+    return customer["cash"]
+
+#15
+
+def remove_customer_cash(customer, amount):
+    customer["cash"] -= amount 
+
+#16 
+
+def get_customer_pet_count(customer):
+    return len(customer["pets"])
+
+#17
+
+def add_pet_to_customer(customer, pet_to_add):
+    customer["pets"].append(pet_to_add)
+    return len(customer["pets"])
